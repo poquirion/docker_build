@@ -1,5 +1,5 @@
 FROM simexp/octave:3.8.1
-MAINTAINER Pierre Bellec <pierre.bellec@criugm.qc.ca>
+MAINTAINER Pierre-Olivier Quirion <poq@criugm.qc.ca>
 
 # Install NIAK from the tim of master
 RUN cd /home/ &&  git clone  --single-branch --branch master --depth 1  https://github.com/poquirion/docker_build.git niak
@@ -15,4 +15,4 @@ RUN echo addpath\(genpath\(\"/home/niak/\"\)\)\; >> /etc/octave.conf
 
 
 # Command to run octave as GUI
-# docker run -i -t --rm -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY -v $HOME:$HOME --user $UID:$GID poquirion/docker_build /bin/bash -c "cd $HOME; source /opt/minc-itk4/minc-toolkit-config.sh; octave --force-gui"
+# docker run -i -t --privileged --rm -v /etc/group:/etc/group -v /etc/passwd:/etc/passwd   -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY -v $HOME:$HOME --user $UID poquirion/docker_build /bin/bash -c "cd $HOME/travail/simexp/software; source /opt/minc-itk4/minc-toolkit-config.sh; octave --force-gui --persist --eval 'addpath(genpath(pwd))'; /bin/bash"
