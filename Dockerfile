@@ -1,7 +1,7 @@
 FROM simexp/octave:3.8.1
 MAINTAINER Pierre-Olivier Quirion <poq@criugm.qc.ca>
 
-# Install NIAK from the time of master
+# Install NIAK from the time of master i
 RUN cd /home/ \
 	&&  wget https://github.com/poquirion/docker_build/archive/stable_release.zip\ 
 	&& unzip stable_release.zip \
