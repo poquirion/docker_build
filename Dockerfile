@@ -1,10 +1,8 @@
 FROM simexp/octave:3.8.1
 MAINTAINER Pierre-Olivier Quirion <poq@criugm.qc.ca>
 
-RUN apt-get install -y git
-
 # Install NIAK from the time of master
-RUN cd /home/ &&  git clone  --single-branch --branch stable_release --depth 1  https://github.com/poquirion/docker_build.git niak
+RUN cd /home/ &&  wget https://github.com/poquirion/docker_build/archive/stable_release.zip && unzip stable_release.zip -d niak && rm stable_release.zip
 
 # Install PSOM
 RUN cd /home/niak/extensions && wget http://www.nitrc.org/frs/download.php/7065/psom-1.0.2.zip && unzip psom-1.0.2.zip && rm psom-1.0.2.zip
