@@ -1,7 +1,7 @@
 FROM simexp/octave:3.8.1
 MAINTAINER Pierre-Olivier Quirion <poq@criugm.qc.ca>
 
-RUN apt-get install git
+RUN apt-get install -y git
 
 # Install NIAK from the time of master
 RUN cd /home/ &&  git clone  --single-branch --branch stable_release --depth 1  https://github.com/poquirion/docker_build.git niak
