@@ -1,6 +1,6 @@
 function [] = niak_progress(num_i,nb_it,perc)
 % Print percentage of progress in a loop
-%
+%i
 % SYNTAX:
 % NIAK_PROGRESS( NUM_I , NB_IT , [PERC] )
 %
